@@ -6,14 +6,14 @@ app.use(express.json());
 let libros = [];
 
 app.get("/libros", (req, res) => {
-  res.json({ status: 200, message: "success", data: libros });
+  res.status(200).json({ status: 200, message: "success", data: libros });
 });
 
 app.post("/libros", (req, res) => {
   const nuevoLibro = req.body;
   nuevoLibro.id = parseInt(nuevoLibro.id);
   libros.push(nuevoLibro);
-  res.json({ status: 200, message: "exitoso", data: libros });
+  res.status(200).res.json({ status: 200, message: "exitoso", data: libros });
 });
 
 app.put("/libros/:id", (req, res) => {
